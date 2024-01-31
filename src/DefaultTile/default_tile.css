@@ -43,3 +43,15 @@
 .feature-tile .tile-text p:last-of-type {
     margin-bottom: 0;
 }
+
+
+.callout-tile {
+    background-color: var(--callout-bg-color, inherit);
+    border: 1px solid var(--callout-border-color, inherit);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.callout-tile .tile-text {
+    order: var(--callout-text-order) !important;
+}

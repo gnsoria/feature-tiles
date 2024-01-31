@@ -13,6 +13,8 @@ export default function DefaultTile({
     mediaAltText = "",
     className = "",
     style = null,
+    useCallout = false,
+    textFirst = false,
     colorScheme = {},
     renderTileText = (text) => <p>{text}</p>,
 }) {
@@ -55,12 +57,31 @@ export default function DefaultTile({
         )
     }
 
+    const getStyleProps = () => {
+        const styleProps = {
+            className: `feature-tile ${className}`,
+            style: {
+                "--media-border-color": colorScheme.mediaBorderColor,
+                ...style
+            }
+        }
+        if (useCallout) {
+            styleProps.className = `${styleProps.className} callout-tile`
+            styleProps.style = {
+                ...styleProps.style,
+                "--callout-border-color": colorScheme.calloutBorderColor,
+                "--callout-bg-color": colorScheme.calloutBgColor,
+                "--callout-text-order": textFirst ? 0 : 1,
+            }
+        }
+        return styleProps
+    }
+
     return (
         <section
             role="region"
             aria-label={header}
-            className={`feature-tile ${className}`}
-            style={{ ...style, "--media-border-color": colorScheme.mediaBorderColor }}
+            {...getStyleProps()}
         >
             <h3>{header}</h3>
             <div className="tile-content">

@@ -119,5 +119,7 @@ The breakpoints are:
 | mediaAltText | `string` | `""` | Alt text for the media |
 | className | `string` | `""` | Any additional classes you want for this component |
 | style | `object` | `null` | Any additional styles you want for this component |
+| useCallout | `boolean` | `false` | Whether you want this to use the callout tile styles or not |
+| textFirst | `boolean` | `false` | Toggle to `true` if you want the text to be above the media |
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
