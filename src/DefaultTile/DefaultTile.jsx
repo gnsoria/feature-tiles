@@ -70,6 +70,7 @@ export default function DefaultTile({
             styleProps.style = {
                 ...styleProps.style,
                 "--callout-border-color": colorScheme.calloutBorderColor,
+                "--callout-text-color": colorScheme.calloutTextColor,
                 "--callout-bg-color": colorScheme.calloutBgColor,
                 "--callout-text-order": textFirst ? 0 : 1,
             }

@@ -12,6 +12,7 @@ import "../typedefs"
 /**
  * @typedef ColorScheme
  * @property {string} mediaBorderColor
+ * @property {string} calloutTextColor
  * @property {string} calloutBgColor
  * @property {string} calloutBorderColor
  */

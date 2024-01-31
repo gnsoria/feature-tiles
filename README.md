@@ -32,6 +32,7 @@ import { useFeatureTiles, MEDIA_TYPES } from "feature-tiles"
 
 const myColorScheme = {
     mediaBorderColor: "gray",
+    calloutTextColor: "white",
     calloutBgColor: "darkgray",
     calloutBorderColor: "aqua",
 }

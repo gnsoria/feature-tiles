@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100% !important;
+    border-radius: 0.5rem;
 }
 
 .feature-tile h1,
@@ -30,7 +31,8 @@
     order: 1;
 }
 
-.feature-tile .tile-media img {
+.feature-tile .tile-media img,
+.feature-tile .tile-media video {
     max-width: 100%;
     height: auto;
     border-radius: 0.25rem;
@@ -46,9 +48,9 @@
 
 
 .callout-tile {
+    color: var(--callout-text-color) !important;
     background-color: var(--callout-bg-color, inherit);
     border: 1px solid var(--callout-border-color, inherit);
-    border-radius: 0.5rem;
     padding: 1rem;
 }
 
