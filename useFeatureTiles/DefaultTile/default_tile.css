@@ -1,0 +1,45 @@
+.feature-tile {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+}
+
+.feature-tile h1,
+.feature-tile h2,
+.feature-tile h3,
+.feature-tile h4,
+.feature-tile h5,
+.feature-tile h6 {
+    text-align: left !important;
+}
+
+.feature-tile .tile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    height: 100%;
+    row-gap: 1rem;
+}
+
+.feature-tile .tile-media {
+    border: 1px solid var(--media-border-color);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    /* Adding `order: 1` allows us to override the tile-text order to 0 to swap their positioning */
+    order: 1;
+}
+
+.feature-tile .tile-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+.feature-tile .tile-text {
+    order: 2;
+}
+
+.feature-tile .tile-text p:last-of-type {
+    margin-bottom: 0;
+}
