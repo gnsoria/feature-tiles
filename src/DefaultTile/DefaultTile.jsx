@@ -14,7 +14,7 @@ export default function DefaultTile({
     className = "",
     style = null,
     colorScheme = {},
-    renderTileText = (text) => <p>{text}</p>
+    renderTileText = (text) => <p>{text}</p>,
 }) {
     const getVideoSourceType = (mediaPath) => `video/${mediaPath.split(".")[1]}`
 
