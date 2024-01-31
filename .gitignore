@@ -1,0 +1,12 @@
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### node_modules
+# Excluding as per this thread: https://stackoverflow.com/q/18128863/3761310
+node_modules/
+
+### Misc ###
+/other_files/
