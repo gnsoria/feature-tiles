@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./tile_grid.css"
-import DefaultTile from "../DefaultTile/DefaultTile";
+import DefaultTile from "../DefaultTile";
 
 export default function TileGrid({ allTileData, colorScheme = {}, renderTileText }) {
 

@@ -1,7 +1,7 @@
 import React from "react";
-import TileGrid from "./TileGrid";
-import DefaultTile from "./DefaultTile";
-import "./typedefs"
+import TileGrid from "../TileGrid";
+import DefaultTile from "../DefaultTile";
+import "../typedefs"
 
 /**
  * @typedef useFeatureTilesHook
