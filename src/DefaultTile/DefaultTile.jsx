@@ -17,11 +17,11 @@ export default function DefaultTile({
     colorScheme = {},
     useCallout = false,
     textFirst = false,
-    premiumIcon = null
+    isSpecial = false,
+    SpecialIcon = null
 }) {
     const getVideoSourceType = (mediaPath) => `video/${mediaPath.split(".")[1]}`
 
-    let PremiumIcon = premiumIcon
     let HeaderComponent = typeof header === "string" ? () => <h3>{header}</h3> : header
 
     let MediaComponent;
@@ -82,14 +82,15 @@ export default function DefaultTile({
         return styleProps
     }
 
+    console.dir(SpecialIcon)
     return (
         <section
             role="region"
             aria-label={header}
             {...getStyleProps()}
         >
-            {PremiumIcon &&
-                <div className="feature-tile-premium-icon-wrapper"><PremiumIcon /></div>
+            {isSpecial && SpecialIcon &&
+                <div className="feature-tile-premium-icon-wrapper"><SpecialIcon /></div>
             }
 
             <HeaderComponent />

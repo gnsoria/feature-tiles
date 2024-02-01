@@ -22,11 +22,14 @@ import "../typedefs"
  * 
  * @param {React.PropsWithoutRef} props
  * @param {ColorScheme} colorScheme
+ * @param {React.Component} renderTileText
+ * @param {React.Component} SpecialIcon
  * @returns {useFeatureTilesHook}
  */
 export default function useFeatureTiles({
     colorScheme,
     renderTileText,
+    SpecialIcon,
 }) {
 
     /**
@@ -37,11 +40,13 @@ export default function useFeatureTiles({
     const CustomizedTileGrid = (props) => <TileGrid
         colorScheme={colorScheme}
         renderTileText={renderTileText}
+        SpecialIcon={SpecialIcon}
         {...props}
     />
     const CustomizedDefaultTile = (props) => <DefaultTile
         colorScheme={colorScheme}
         renderTileText={renderTileText}
+        SpecialIcon={SpecialIcon}
         {...props}
     />
 

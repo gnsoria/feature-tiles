@@ -89,6 +89,7 @@ The hook that gives you access to the tiles. Returns `{ TileGrid, DefaultTile }`
 |---|---|---|---|
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
+| SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
 
 ## `TileGrid`
 
@@ -105,6 +106,7 @@ The breakpoints are:
 | allTileData | `TileData[]` | | The data you want to tiled in this grid |
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
+| SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
 
 ## `DefaultTile`
 
@@ -114,13 +116,15 @@ The breakpoints are:
 |---|---|---|---|
 | header | `string` or `React.Component` | | Either the header text or a custom React Component. If only text is given, it will render as an `<h3>` |
 | description | `string` | | The tile text |
+| renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
 | mediaType | `string` | `""` | "image" or "video". The type of media you'll be passing in. Omit if there's no media |
 | mediaPath | `string` or `string[]` | `""` | The path to the media. For if `mediaType="video"`, accepts an array of paths so you can utilize different media for different browsers. |
 | mediaVideoPoster | `string` | `""` | The path to the poster image for videos |
 | mediaAltText | `string` | `""` | Alt text for the media |
 | className | `string` | `""` | Any additional classes you want for this component |
 | style | `object` | `null` | Any additional styles you want for this component |
-| useCallout | `boolean` | `false` | Whether you want this to use the callout tile styles or not |
-| textFirst | `boolean` | `false` | Toggle to `true` if you want the text to be above the media |
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
-| renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
+| textFirst | `boolean` | `false` | Toggle to `true` if you want the text to be above the media |
+| useCallout | `boolean` | `false` | Whether you want this to use the callout tile styles or not |
+| isSpecial | `boolean` | `false` | Toggles whether to show the SpecialIcon or not |
+| SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |

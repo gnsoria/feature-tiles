@@ -7,7 +7,8 @@ export default function TileGrid({
     allTileData,
     className = "",
     colorScheme = {},
-    renderTileText
+    renderTileText,
+    SpecialIcon,
 }) {
     return (
         <div className={`feature-tile-grid ${className}`} >
@@ -16,6 +17,7 @@ export default function TileGrid({
                     <DefaultTile
                         colorScheme={colorScheme}
                         renderTileText={renderTileText}
+                        SpecialIcon={SpecialIcon}
                         {...tileData}
                     />
                 </div>
