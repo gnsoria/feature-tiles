@@ -17,9 +17,11 @@ export default function DefaultTile({
     colorScheme = {},
     useCallout = false,
     textFirst = false,
+    premiumIcon = null
 }) {
     const getVideoSourceType = (mediaPath) => `video/${mediaPath.split(".")[1]}`
 
+    let PremiumIcon = premiumIcon
     let HeaderComponent = typeof header === "string" ? () => <h3>{header}</h3> : header
 
     let MediaComponent;
@@ -86,6 +88,10 @@ export default function DefaultTile({
             aria-label={header}
             {...getStyleProps()}
         >
+            {PremiumIcon &&
+                <div className="feature-tile-premium-icon-wrapper"><PremiumIcon /></div>
+            }
+
             <HeaderComponent />
 
             <div className="tile-content">
