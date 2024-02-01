@@ -128,3 +128,5 @@ The breakpoints are:
 | useCallout | `boolean` | `false` | Whether you want this to use the callout tile styles or not |
 | isSpecial | `boolean` | `false` | Toggles whether to show the SpecialIcon or not |
 | SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
+| linkHref | `string` | `""` | A URL that you want to show on the card |
+| linkText | `string` | `"Go there now!"` | The text for the link |
