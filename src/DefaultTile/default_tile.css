@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100% !important;
     border-radius: 0.5rem;
+    position: relative;
 }
 
 .feature-tile h1,
@@ -14,6 +15,15 @@
     text-align: left !important;
 }
 
+.feature-tile-premium-icon-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.25rem;
+    height: 1rem;
+    width: 1rem;
+}
+
 .feature-tile .tile-content {
     display: flex;
     flex-direction: column;
@@ -23,12 +33,20 @@
     row-gap: 1rem;
 }
 
+.feature-tile .tile-content > * {
+    /* This allows us to override the tile-text order to 0 to swap its position */
+    order: 1;
+}
+
+.feature-tile .tile-text {
+    order: var(--callout-text-order) !important;
+}
+
+
 .feature-tile .tile-media {
     border: 1px solid var(--media-border-color);
     border-radius: 0.25rem;
     padding: 0.25rem;
-    /* Adding `order: 1` allows us to override the tile-text order to 0 to swap their positioning */
-    order: 1;
 }
 
 .feature-tile .tile-media img,
@@ -36,10 +54,6 @@
     max-width: 100%;
     height: auto;
     border-radius: 0.25rem;
-}
-
-.feature-tile .tile-text {
-    order: 2;
 }
 
 .feature-tile .tile-text p:last-of-type {
@@ -52,8 +66,4 @@
     background-color: var(--callout-bg-color, inherit);
     border: 1px solid var(--callout-border-color, inherit);
     padding: 1rem;
-}
-
-.callout-tile .tile-text {
-    order: var(--callout-text-order) !important;
 }

@@ -17,6 +17,10 @@ export default function DefaultTile({
     colorScheme = {},
     useCallout = false,
     textFirst = false,
+    isSpecial = false,
+    SpecialIcon = null,
+    linkHref = null,
+    linkText = "Go there now!",
 }) {
     const getVideoSourceType = (mediaPath) => `video/${mediaPath.split(".")[1]}`
 
@@ -80,12 +84,17 @@ export default function DefaultTile({
         return styleProps
     }
 
+    console.dir(SpecialIcon)
     return (
         <section
             role="region"
             aria-label={header}
             {...getStyleProps()}
         >
+            {isSpecial && SpecialIcon &&
+                <div className="feature-tile-premium-icon-wrapper"><SpecialIcon /></div>
+            }
+
             <HeaderComponent />
 
             <div className="tile-content">
@@ -97,6 +106,8 @@ export default function DefaultTile({
                 <div className="tile-text" >
                     {renderTileText(description)}
                 </div>
+
+                {linkHref && <a href={linkHref}>{linkText}</a>}
             </div>
         </section>
     )
