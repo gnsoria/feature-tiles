@@ -7,18 +7,20 @@ import { MEDIA_TYPES } from "../constants";
 export default function DefaultTile({
     header,
     description,
+    renderTileText = (text) => <p>{text}</p>,
     mediaType = null,
     mediaPath = "",
     mediaVideoPoster = "",
     mediaAltText = "",
     className = "",
     style = null,
+    colorScheme = {},
     useCallout = false,
     textFirst = false,
-    colorScheme = {},
-    renderTileText = (text) => <p>{text}</p>,
 }) {
     const getVideoSourceType = (mediaPath) => `video/${mediaPath.split(".")[1]}`
+
+    let HeaderComponent = typeof header === "string" ? () => <h3>{header}</h3> : header
 
     let MediaComponent;
     if ((mediaType && !mediaPath) || (mediaPath && !mediaType)) {
@@ -84,7 +86,8 @@ export default function DefaultTile({
             aria-label={header}
             {...getStyleProps()}
         >
-            <h3>{header}</h3>
+            <HeaderComponent />
+
             <div className="tile-content">
                 {MediaComponent &&
                     <div className="tile-media">

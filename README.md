@@ -112,7 +112,7 @@ The breakpoints are:
 
 | prop | type | default | description |
 |---|---|---|---|
-| header | `string` | | The header text you want for this tile |
+| header | `string` or `React.Component` | | Either the header text or a custom React Component. If only text is given, it will render as an `<h3>` |
 | description | `string` | | The tile text |
 | mediaType | `string` | `""` | "image" or "video". The type of media you'll be passing in. Omit if there's no media |
 | mediaPath | `string` or `string[]` | `""` | The path to the media. For if `mediaType="video"`, accepts an array of paths so you can utilize different media for different browsers. |
