@@ -6,6 +6,7 @@
     position: relative;
 }
 
+.feature-tile header,
 .feature-tile h1,
 .feature-tile h2,
 .feature-tile h3,
@@ -13,9 +14,11 @@
 .feature-tile h5,
 .feature-tile h6 {
     text-align: left !important;
+    /* This margin makes it so that the header doesn't overlap with the special icon */
+    margin-right: 1.5rem;
 }
 
-.feature-tile-premium-icon-wrapper {
+.feature-tile-special-icon-wrapper {
     position: absolute;
     top: 0;
     right: 0;

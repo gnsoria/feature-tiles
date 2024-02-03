@@ -92,7 +92,7 @@ export default function DefaultTile({
             {...getStyleProps()}
         >
             {isSpecial && SpecialIcon &&
-                <div className="feature-tile-premium-icon-wrapper"><SpecialIcon /></div>
+                <div className="feature-tile-special-icon-wrapper"><SpecialIcon /></div>
             }
 
             <HeaderComponent />
