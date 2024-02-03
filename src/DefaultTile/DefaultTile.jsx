@@ -78,7 +78,7 @@ export default function DefaultTile({
                 "--callout-border-color": colorScheme.calloutBorderColor,
                 "--callout-text-color": colorScheme.calloutTextColor,
                 "--callout-bg-color": colorScheme.calloutBgColor,
-                "--callout-text-order": textFirst ? 0 : 1,
+                "--tile-text-order": textFirst ? 0 : 1,
             }
         }
         return styleProps

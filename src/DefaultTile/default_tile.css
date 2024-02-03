@@ -39,7 +39,7 @@
 }
 
 .feature-tile .tile-text {
-    order: var(--callout-text-order) !important;
+    order: var(--tile-text-order, 1) !important;
 }
 
 
