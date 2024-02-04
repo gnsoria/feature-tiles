@@ -9,6 +9,7 @@ export default function TileGrid({
     colorScheme = {},
     renderTileText,
     SpecialIcon,
+    mediaLazyLoad,
 }) {
     return (
         <div className={`feature-tile-grid ${className}`} >
@@ -18,6 +19,7 @@ export default function TileGrid({
                         colorScheme={colorScheme}
                         renderTileText={renderTileText}
                         SpecialIcon={SpecialIcon}
+                        mediaLazyLoad={mediaLazyLoad}
                         {...tileData}
                     />
                 </div>

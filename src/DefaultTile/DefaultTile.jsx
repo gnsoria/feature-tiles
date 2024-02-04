@@ -12,6 +12,7 @@ export default function DefaultTile({
     mediaPath = "",
     mediaVideoPoster = "",
     mediaAltText = "",
+    mediaLazyLoad = false,
     className = "",
     style = null,
     colorScheme = {},
@@ -32,7 +33,14 @@ export default function DefaultTile({
     }
 
     if (mediaType == MEDIA_TYPES.image) {
-        MediaComponent = () => <img src={mediaPath} alt={mediaAltText} />
+        MediaComponent = () => (
+            <img
+                src={mediaPath}
+                alt={mediaAltText}
+                width="100%"
+                loading={mediaLazyLoad ? "lazy" : null}
+            />
+        )
     } else if (mediaType == MEDIA_TYPES.video) {
         MediaComponent = () => (
             // HTML-friendly video types: https://stackoverflow.com/a/5959893/3761310

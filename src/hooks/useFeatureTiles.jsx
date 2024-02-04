@@ -30,6 +30,7 @@ export default function useFeatureTiles({
     colorScheme,
     renderTileText,
     SpecialIcon,
+    mediaLazyLoad,
 }) {
 
     /**
@@ -41,12 +42,14 @@ export default function useFeatureTiles({
         colorScheme={colorScheme}
         renderTileText={renderTileText}
         SpecialIcon={SpecialIcon}
+        mediaLazyLoad={mediaLazyLoad}
         {...props}
     />
     const CustomizedDefaultTile = (props) => <DefaultTile
         colorScheme={colorScheme}
         renderTileText={renderTileText}
         SpecialIcon={SpecialIcon}
+        mediaLazyLoad={mediaLazyLoad}
         {...props}
     />
 
