@@ -39,7 +39,6 @@ export default function DefaultTile({
                 loading={mediaLazyLoad ? "lazy" : null}
                 src={mediaPath}
                 alt={mediaAltText}
-                width="100%"
             />
         )
     } else if (mediaType == MEDIA_TYPES.video) {
