@@ -84,7 +84,6 @@ export default function DefaultTile({
         return styleProps
     }
 
-    console.dir(SpecialIcon)
     return (
         <section
             role="region"
