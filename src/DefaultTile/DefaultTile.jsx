@@ -112,9 +112,9 @@ export default function DefaultTile({
                 }
                 <div className="tile-text" >
                     {renderTileText(description)}
+                    {linkHref && <a className="tile-link" href={linkHref}>{linkText}</a>}
                 </div>
 
-                {linkHref && <a href={linkHref}>{linkText}</a>}
             </div>
         </section>
     )
