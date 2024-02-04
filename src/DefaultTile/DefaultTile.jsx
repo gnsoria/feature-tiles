@@ -35,10 +35,11 @@ export default function DefaultTile({
     if (mediaType == MEDIA_TYPES.image) {
         MediaComponent = () => (
             <img
+                // `loading` first because https://stackoverflow.com/a/76253300/3761310
+                loading={mediaLazyLoad ? "lazy" : null}
                 src={mediaPath}
                 alt={mediaAltText}
                 width="100%"
-                loading={mediaLazyLoad ? "lazy" : null}
             />
         )
     } else if (mediaType == MEDIA_TYPES.video) {
