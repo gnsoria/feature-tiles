@@ -47,6 +47,7 @@ export default function DefaultTile({
             <video
                 autoPlay
                 loop
+                muted
                 // playsInline needed for iOS: https://stackoverflow.com/a/45402661/3761310
                 playsInline
                 // Tells the browser to download the video
