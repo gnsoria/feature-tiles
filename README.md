@@ -90,6 +90,7 @@ The hook that gives you access to the tiles. Returns `{ TileGrid, DefaultTile }`
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
 | SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
+| mediaLazyLoad | `boolean` | `false` | Whether or not to lazy load the `<img>` tags. Does not lazy-load videos. To lazy-load an entire `TileGrid`, consider something like [`'react-lazy-load-image-component'`](https://www.npmjs.com/package/react-lazy-load-image-component), as see in [this answer](https://stackoverflow.com/a/49437449/3761310) |
 
 ## `TileGrid`
 
@@ -100,13 +101,16 @@ The breakpoints are:
 * Medium: >=768px - 2 tiles
 * Large: >=992px - 3 tiles
 
+`TileGrid` accepts the following props (note: `allTileData` is required; all others are passed on to the children `DefaultTiles`):
 
 | prop | type | default | description |
 |---|---|---|---|
 | allTileData | `TileData[]` | | The data you want to tiled in this grid |
+|---|---|---|---|
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
 | SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
+| mediaLazyLoad | `boolean` | `false` | Whether or not to lazy load the `<img>` tags. Does not lazy-load videos. To lazy-load an entire `TileGrid`, consider something like [`'react-lazy-load-image-component'`](https://www.npmjs.com/package/react-lazy-load-image-component), as see in [this answer](https://stackoverflow.com/a/49437449/3761310) |
 
 ## `DefaultTile`
 
@@ -121,6 +125,7 @@ The breakpoints are:
 | mediaPath | `string` or `string[]` | `""` | The path to the media. For if `mediaType="video"`, accepts an array of paths so you can utilize different media for different browsers. |
 | mediaVideoPoster | `string` | `""` | The path to the poster image for videos |
 | mediaAltText | `string` | `""` | Alt text for the media |
+| mediaLazyLoad | `boolean` | `false` | Whether or not to lazy load the `<img>` tags. Does not lazy-load videos. To lazy-load an entire `TileGrid`, consider something like [`'react-lazy-load-image-component'`](https://www.npmjs.com/package/react-lazy-load-image-component), as see in [this answer](https://stackoverflow.com/a/49437449/3761310) |
 | className | `string` | `""` | Any additional classes you want for this component |
 | style | `object` | `null` | Any additional styles you want for this component |
 | colorScheme | `ColorScheme` | `{}` | Color overrides |
