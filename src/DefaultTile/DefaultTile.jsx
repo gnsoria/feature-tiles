@@ -77,6 +77,7 @@ export default function DefaultTile({
             className: `feature-tile ${className}`,
             style: {
                 "--media-border-color": colorScheme.mediaBorderColor,
+                "--tile-text-order": textFirst ? 0 : 1,
                 ...style
             }
         }
@@ -87,7 +88,6 @@ export default function DefaultTile({
                 "--callout-border-color": colorScheme.calloutBorderColor,
                 "--callout-text-color": colorScheme.calloutTextColor,
                 "--callout-bg-color": colorScheme.calloutBgColor,
-                "--tile-text-order": textFirst ? 0 : 1,
             }
         }
         return styleProps
