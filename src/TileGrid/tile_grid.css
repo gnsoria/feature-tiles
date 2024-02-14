@@ -1,8 +1,9 @@
 .feature-tile-grid {
     --column-gap: 0.75rem;
     --row-gap: calc(var(--column-gap) * 3);
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /* grid-template-columns are all defined below */
+    grid-auto-flow: dense;
     margin: 0 calc(-1 * var(--column-gap));
     row-gap: var(--row-gap);
     padding-bottom: var(--row-gap);
@@ -16,26 +17,40 @@
     padding-left: var(--column-gap);
 }
 
-/* Bootstrap sm */
+/* Up to Bootstrap sm */
 @media (max-width: 575px) {
-    .feature-tile-grid>* {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .feature-tile-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 /* Bootstrap md */
 @media (min-width: 768px) {
-    .feature-tile-grid>* {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .feature-tile-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 /* Bootstrap lg */
 @media (min-width: 992px) {
-    .feature-tile-grid>* {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
+    .feature-tile-grid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+.double-wide-tile {
+    grid-column: span 2;
+}
+
+.double-tall-tile {
+    grid-row: span 2;
+}
+
+/*
+Will always be the full width of the TileGrid. Because of how tiles work, it'll also be quite tall unless you add custom styling to prevent that.
+
+If you want to 
+*/
+.showcase-tile {
+    grid-column: 1/-1;
 }

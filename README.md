@@ -135,3 +135,21 @@ The breakpoints are:
 | SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
 | linkHref | `string` | `""` | A URL that you want to show on the card |
 | linkText | `string` | `"Go there now!"` | The text for the link |
+
+## Special Tile Types
+
+There are a few special tile types that you can utilize when using `TileGrid`. Add the param to your tile data and `TileGrid` will style the tile appropriately.
+
+| param | description |
+|---|---|
+| `useDoubleWide` | Makes the tile take up two columns. Only applies to layouts where there are two or more columns. |
+| `useDoubleTall` | Same as `useDoubleWide` except for rows |
+| `useShowcase` | Makes the tile span all columns on all screen sizes. Great for really big and/or important features. Consider using with `useCallout`. |
+
+## Special Tile Classes
+
+There are a few special tile classes that you can add to `DefaultTile` or include with the `className` param in your tile data.
+
+| className | description |
+|---|---|
+| `content-side-by-side` <br> `content-side-by-side-md` <br> `content-side-by-side-lg` | Switches the tile content layout from a column (media above text) to being a row. Use the `-md` and `-lg` versions limit it to just those specific screen sizes. <br><br> This is particularly useful in conjunction with `TileGrid` and options like `useDoubleWide` and `useShowcase`. |

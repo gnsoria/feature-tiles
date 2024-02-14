@@ -16,6 +16,7 @@ export default function DefaultTile({
     className = "",
     style = null,
     colorScheme = {},
+    // Modifications to the tile
     useCallout = false,
     textFirst = false,
     isSpecial = false,
