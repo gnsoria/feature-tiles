@@ -33,7 +33,7 @@
     justify-content: space-between;
     align-items: start;
     height: 100%;
-    row-gap: 1rem;
+    gap: 1rem;
 }
 
 .feature-tile .tile-content > * {
@@ -76,4 +76,39 @@
     background-color: var(--callout-bg-color, inherit);
     border: 1px solid var(--callout-border-color, inherit);
     padding: 1rem;
+}
+
+
+
+/*
+content-side-by-side switches the tile content layout from a column (media above text) to being a row. There are -md and -lg suffixes to limit it to just those specific screen sizes.
+
+This is particularly useful in conjunction with TileGrid and options like useDoubleWide and useShowcase
+*/
+.content-side-by-side .tile-content {
+    flex-direction: row;
+    align-items: start;
+}
+.content-side-by-side .tile-text {
+    max-width: 35%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .content-side-by-side-md .tile-content {
+        flex-direction: row;
+        align-items: start;
+    }
+    .content-side-by-side-md .tile-text {
+        max-width: 35%;
+    }
+}
+
+@media (min-width: 992px) {
+    .content-side-by-side-lg .tile-content {
+        flex-direction: row;
+        align-items: start;
+    }
+    .content-side-by-side-lg .tile-text {
+        max-width: 35%;
+    }
 }

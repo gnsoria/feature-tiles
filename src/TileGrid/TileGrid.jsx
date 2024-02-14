@@ -11,10 +11,24 @@ export default function TileGrid({
     SpecialIcon,
     mediaLazyLoad,
 }) {
+
+    const getWrapperClass = (tileData) => {
+        let tileWrapperClass = "feature-tile-wrapper"
+        if (tileData.useDoubleWide) {
+            tileWrapperClass = `${tileWrapperClass} double-wide-tile`
+        } else if (tileData.useDoubleTall) {
+            tileWrapperClass = `${tileWrapperClass} double-tall-tile`
+        } else if (tileData.useShowcase) {
+            tileWrapperClass = `${tileWrapperClass} showcase-tile`
+        }
+        return tileWrapperClass
+    }
+
+
     return (
         <div className={`feature-tile-grid ${className}`} >
             {allTileData.map((tileData, index) =>
-                <div key={index} className="feature-tile-wrapper">
+                <div key={index} className={getWrapperClass(tileData)} >
                     <DefaultTile
                         colorScheme={colorScheme}
                         renderTileText={renderTileText}
