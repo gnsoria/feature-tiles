@@ -38,12 +38,15 @@
     }
 }
 
-.double-wide-tile {
-    grid-column: span 2;
-}
-
-.double-tall-tile {
-    grid-row: span 2;
+/* Bootstrap md */
+@media (min-width: 768px) {
+    .double-wide-tile {
+        grid-column: span 2;
+    }
+    
+    .double-tall-tile {
+        grid-row: span 2;
+    }
 }
 
 /*
