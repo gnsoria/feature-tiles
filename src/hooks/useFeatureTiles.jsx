@@ -1,12 +1,14 @@
 import React from "react";
 import TileGrid from "../TileGrid";
 import DefaultTile from "../DefaultTile";
+import FeatureSection from "../FeatureSection"
 import "../typedefs"
 
 /**
  * @typedef useFeatureTilesHook
  * @property {TileGrid} TileGrid
  * @property {DefaultTile} DefaultTile
+ * @property {FeatureSection} FeatureSection
  */
 
 /**
@@ -53,6 +55,10 @@ export default function useFeatureTiles({
         {...props}
     />
 
-    return { TileGrid: CustomizedTileGrid, DefaultTile: CustomizedDefaultTile }
+    return {
+        TileGrid: CustomizedTileGrid,
+        DefaultTile: CustomizedDefaultTile,
+        FeatureSection
+    }
 }
 

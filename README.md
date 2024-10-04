@@ -8,13 +8,14 @@ It doesn't have any dependencies, so the easiest way is to just git submodule it
 
 ```
 git submodule add [github-ssh-link] /path/to/submodule/
+npm install react-lazy-load-image-component
 ```
 
 At some point I'll package it up, but at the moment I'm just splitting it into a new repo so that I can use it across some of my personal projects.
 
 ## useFeatureTiles hook
 
-The main two components are `DefaultTile` and `TileGrid`, both of which are available via the `useFeatureTiles` hook. This hook allows you to pass in a color scheme and a render function for the tile text.
+The main components are `DefaultTile`, `TileGrid`, and `FeatureSection`. These are available via the `useFeatureTiles` hook. This hook allows you to pass in a color scheme and a render function for the tile text.
 * There are three available color customizations:
  * `mediaBorderColor`: The border color of media on tiles (images and video).
  * `calloutBgColor`: The background color of callout tiles. Ideally this would be something eye-catching so that the callout tiles stand out from the rest.
@@ -91,6 +92,24 @@ The hook that gives you access to the tiles. Returns `{ TileGrid, DefaultTile }`
 | renderTileText | `function` | `(text) => <p>{text}</p>` | A custom rendering function for the tile text |
 | SpecialIcon | `React.Component` | `null` | This icon appears in the top-right corner of tiles when `isSpecial=true`. Use it for marking tiles as premium features, or otherwise special. |
 | mediaLazyLoad | `boolean` | `false` | Whether or not to lazy load the `<img>` tags. Does not lazy-load videos. To lazy-load an entire `TileGrid`, consider something like [`'react-lazy-load-image-component'`](https://www.npmjs.com/package/react-lazy-load-image-component), as see in [this answer](https://stackoverflow.com/a/49437449/3761310) |
+
+## `FeatureSection`
+
+This component allows you to group feature tiles together into a cohesive section. Sections allow you to describe related features, anchor to them using the URL, and indicate whether the entire feature list is special.
+
+| prop | type | default | description |
+|---|---|---|---|
+| headerId | `string` | | Required |
+| headerText | `string` | | Required |
+| HeaderSvg | `React.Component` | `undefined` | An SVG to show before the header text |
+| headerHref | `string` | `undefined` | Converts the header to a link. Useful for pointing to the page that the feature lives on. |
+| description | `string` | `undefined` | Describes the feature section |
+| lazyLoad | `boolean` | `false` | Whether you want the tiles to lazy-load. ONLY AFFECTS THE TILES (this allows you to still anchor to the section). |
+| specialText | `string` | `undefined` | Sub-text to the header indicating that this section is special |
+| SpecialIcon | `React.Component` | `undefined` | An icon related to your special theme |
+| SpecialDescription | `React.Component` | `undefined` | An extra description below the section description describing how it is special |
+| backToTopAnchor | `string` | `"#top"` | The anchor link for the top. Defaults to the top of the page |
+| children | `React.ReactNode` | `undefined` | The tiles in this section. |
 
 ## `TileGrid`
 
