@@ -84,7 +84,9 @@ export function FeatureSection({
                         {!!SpecialDescription && <SpecialDescription />}
                     </div>
                 }
-                <Media {...heroMediaProps} colorScheme={colorScheme} />
+                <div className="feature-section--hero-media">
+                    <Media {...heroMediaProps} colorScheme={colorScheme} />
+                </div>
             </header>
 
             <LazyLoadComponent visibleByDefault={!lazyLoad} >
