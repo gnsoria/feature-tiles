@@ -12,6 +12,23 @@ export default function useFilteredFeatures(features) {
     const [filterBySpecialty, setFilterBySpecialty] = useState(SPECIALTY_TYPES.all);
 
     /**
+     * This simply updates the hook state, which triggers a refresh of filteredFeatures
+     * @param {object} props
+     * @property {string} query
+     * @property {string} specialty Must be SPECIALTY_TYPES value
+     */
+    function filter({ query, specialty }) {
+
+        let _specialty = specialty
+        if (!Object.values(SPECIALTY_TYPES).includes(specialty)) {
+            _specialty = SPECIALTY_TYPES.all
+        }
+        setFilterByText(query)
+        setFilterBySpecialty(_specialty)
+    }
+
+
+    /**
      * A simple wrapper to check whether the text string includes the filterByText, after
      * lowercasing both
      * @param {string} text
@@ -31,7 +48,7 @@ export default function useFilteredFeatures(features) {
         if (!filterByText && filterBySpecialty == SPECIALTY_TYPES.all) {
             return tileData
         }
-        let tiles = tileData
+        let tiles = {}
         for (const [name, data] of Object.entries(tileData)) {
             if (!!filterByText) {
                 const includesQuery = includesLC(data.header) || includesLC(data.description)
@@ -40,8 +57,8 @@ export default function useFilteredFeatures(features) {
                 }
             }
 
-            if (!!setFilterBySpecialty && setFilterBySpecialty != SPECIALTY_TYPES.all) {
-                const includeIsSpecial = setFilterBySpecialty == setFilterBySpecialty.special
+            if (!!filterBySpecialty && filterBySpecialty != SPECIALTY_TYPES.all) {
+                const includeIsSpecial = filterBySpecialty == filterBySpecialty.special
                 const tileMatchesSpecialty = data.isSpecial == includeIsSpecial
                 if (tileMatchesSpecialty) {
                     tiles[name] = data
@@ -49,21 +66,6 @@ export default function useFilteredFeatures(features) {
             }
         }
         return tiles
-    }
-
-    /**
-     * This updates the hook state, which refreshes filteredFeatures
-     * @param {object} props
-     * @property {string} query
-     * @property {string} specialty Must be SPECIALTY_TYPES value
-     */
-    function filter({ query, specialty }) {
-        let _specialty = specialty
-        if (!Object.values(SPECIALTY_TYPES).includes(specialty)) {
-            _specialty = SPECIALTY_TYPES.all
-        }
-        setFilterByText(query)
-        setFilterBySpecialty(_specialty)
     }
 
     const filteredFeatures = useMemo(() => {
