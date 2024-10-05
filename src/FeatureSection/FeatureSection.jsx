@@ -45,6 +45,7 @@ export function FeatureSection({
     backToTopAnchor = "#top",
     children: tiles
 }) {
+    console.dir(description)
     if (!tiles) return;
 
     if (!headerId || !headerText) {
@@ -71,7 +72,7 @@ export function FeatureSection({
                         </span>
                     }
                 </h2>
-                {!!description || !!SpecialDescription &&
+                {(!!description || !!SpecialDescription) &&
                     <div className="feature-section--description">
                         <p>{description}</p>
                         {!!SpecialDescription && <SpecialDescription />}
