@@ -99,8 +99,9 @@ This component allows you to group feature tiles together into a cohesive sectio
 
 | prop | type | default | description |
 |---|---|---|---|
-| headerId | `string` | | Required |
-| headerText | `string` | | Required |
+| headerId | `string` | | An ID for the section, applied to the header |
+| headerText | `string` | | The text of the header |
+|---|---|---|---|
 | HeaderSvg | `React.Component` | `undefined` | An SVG to show before the header text |
 | headerHref | `string` | `undefined` | Converts the header to a link. Useful for pointing to the page that the feature lives on. |
 | description | `string` | `undefined` | Describes the feature section |
@@ -155,7 +156,7 @@ The breakpoints are:
 | linkHref | `string` | `""` | A URL that you want to show on the card |
 | linkText | `string` | `"Go there now!"` | The text for the link |
 
-## Special Tile Types
+### Special Tile Types
 
 There are a few special tile types that you can utilize when using `TileGrid`. Add the param to your tile data and `TileGrid` will style the tile appropriately.
 
@@ -165,10 +166,21 @@ There are a few special tile types that you can utilize when using `TileGrid`. A
 | `useDoubleTall` | Same as `useDoubleWide` except for rows |
 | `useShowcase` | Makes the tile span all columns on all screen sizes. Great for really big and/or important features. Consider using with `useCallout`. |
 
-## Special Tile Classes
+### Special Tile Classes
 
 There are a few special tile classes that you can add to `DefaultTile` or include with the `className` param in your tile data.
 
 | className | description |
 |---|---|
 | `content-side-by-side` <br> `content-side-by-side-md` <br> `content-side-by-side-lg` | Switches the tile content layout from a column (media above text) to being a row. Use the `-md` and `-lg` versions limit it to just those specific screen sizes. <br><br> This is particularly useful in conjunction with `TileGrid` and options like `useDoubleWide` and `useShowcase`. |
+
+## SectionJumpButtons
+
+A navigation component that contains links to different sections. You pass in the feature section data and it will generate a link for each one using the headerId, headerText, and HeaderSvg (if present).
+
+| prop | type | default | description |
+|---|---|---|---|
+| features | `FeatureSectionProps[]` | | An array of Feature Section prop arguments. Really only needs `headerId`, `headerText`, and optionally `HeaderSVG` |
+|---|---|---|---|
+| btnComponent | `React.Component` | `JumpButton` | A custom `<a>` tag component to use for the links. This is useful if you're using a custom component library like Bootstrap. |
+

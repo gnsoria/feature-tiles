@@ -2,6 +2,7 @@ import React from "react";
 import TileGrid from "../TileGrid";
 import DefaultTile from "../DefaultTile";
 import FeatureSection from "../FeatureSection"
+import SectionJumpButtons from "../SectionJumpButtons"
 import "../typedefs"
 
 /**
@@ -9,6 +10,7 @@ import "../typedefs"
  * @property {TileGrid} TileGrid
  * @property {DefaultTile} DefaultTile
  * @property {FeatureSection} FeatureSection
+ * @property {SectionJumpButtons} SectionJumpButtons
  */
 
 /**
@@ -58,7 +60,8 @@ export default function useFeatureTiles({
     return {
         TileGrid: CustomizedTileGrid,
         DefaultTile: CustomizedDefaultTile,
-        FeatureSection
+        FeatureSection,
+        SectionJumpButtons,
     }
 }
 
