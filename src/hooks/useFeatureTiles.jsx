@@ -56,11 +56,15 @@ export default function useFeatureTiles({
         mediaLazyLoad={mediaLazyLoad}
         {...props}
     />
+    const CustomizedFeatureSection = (props) => <FeatureSection
+        colorScheme={colorScheme}
+        {...props}
+    />
 
     return {
         TileGrid: CustomizedTileGrid,
         DefaultTile: CustomizedDefaultTile,
-        FeatureSection,
+        FeatureSection: CustomizedFeatureSection,
         SectionJumpButtons,
     }
 }

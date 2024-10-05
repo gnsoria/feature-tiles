@@ -46,22 +46,6 @@
 }
 
 
-.feature-tile .tile-media {
-    border: 1px solid var(--media-border-color);
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.feature-tile .tile-media img,
-.feature-tile .tile-media video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.25rem;
-}
-
 .feature-tile .tile-text p:last-of-type {
     margin-bottom: 0;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 import "./feature_section.css"
+import Media from "../Media"
 
 /**
  * @typedef FeatureSectionProps
@@ -11,6 +12,8 @@ import "./feature_section.css"
  * @param {string} [headerHref] Converts the header to a link. Useful for pointing to the page that
  *      the feature lives on.
  * @param {string} [description] Describes the feature section
+ * @param {object} [heroMediaProps] Media props if you want some hero image / video under the
+ *      description
  * @param {boolean} [lazyLoad = false] Whether you want the tiles to lazy-load. ONLY AFFECTS THE
  *      TILES (this allows you to still anchor to the section).
  * @param {string} [specialText] Sub-text to the header indicating that this section is special
@@ -38,14 +41,17 @@ export function FeatureSection({
     HeaderSvg,
     headerHref,
     description,
+    heroMediaProps,
+    // Other args
     lazyLoad = false,
     specialText,
     SpecialIcon,
     SpecialDescription,
     backToTopAnchor = "#top",
+    colorScheme = {},
+    // 
     children: tiles
 }) {
-    console.dir(description)
     if (!tiles) return;
 
     if (!headerId || !headerText) {
@@ -78,6 +84,7 @@ export function FeatureSection({
                         {!!SpecialDescription && <SpecialDescription />}
                     </div>
                 }
+                <Media {...heroMediaProps} colorScheme={colorScheme} />
             </header>
 
             <LazyLoadComponent visibleByDefault={!lazyLoad} >
