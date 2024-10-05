@@ -184,3 +184,27 @@ A navigation component that contains links to different sections. You pass in th
 |---|---|---|---|
 | btnComponent | `React.Component` | `JumpButton` | A custom `<a>` tag component to use for the links. This is useful if you're using a custom component library like Bootstrap. |
 
+## `useFilteredFeatures`
+
+This hook gives you two parameters to filter out tiles (or even entire sections). It's designed such that you can create the filter form in whichever way makes the most sense for you and then simply tell the hook what values to use for the parameters.
+
+The hook takes a single `features` argument, which is an array of `FeatureSectionProps` objects. It then returns three values:
+
+* `filteredFeatures`: A new array of `FeatureSectionProps` that you should use instead of your original value. (By default, it will be unfiltered.)
+* `filter()`: A function that triggers the filter.
+* `SPECIALTY_TYPES`: A simple object of valild values for the `specialty` argument on `filter()`
+
+### `filteredFeatures`
+
+You should use this array in place of your original array of feature section data (i.e. pass it into `SectionJumpButtons` and `FeatureSection`).
+
+When filters are applied, sections with no matching data (or tiles with matching data) will be excluded from the array entirely. This shortens the page and also reduces the number of jump buttons (if applicable).
+
+### `filter()`
+
+This function is how you update the array of feature sections. It accepts two arguments:
+
+| prop | type | description |
+|---|---|---|
+| query | `string` | Some text you want to search for. The hook will look in the section header and description, as well as in each tile's header and description. If the text is found in the section data, it will include all tiles from that section. Otherwise, it will only include tiles that match. |
+| specialty | `All` \| `Regular` \| `Special` | One of `SPECIALTY_TYPES`. This allows you to filter based on the `isSpecial` property of a tile. |
