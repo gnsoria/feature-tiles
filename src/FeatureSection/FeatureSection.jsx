@@ -59,6 +59,7 @@ export function FeatureSection({
     }
 
     const isEarlyAccess = !!specialText
+    const Description = typeof description == "function" ? description : () => <p>{description}</p>
 
     return (
         <section role="region" aria-labelledby={headerId} className="feature-section" >
@@ -78,9 +79,9 @@ export function FeatureSection({
                         </span>
                     }
                 </h2>
-                {(!!description || !!SpecialDescription) &&
+                {(!!Description || !!SpecialDescription) &&
                     <div className="feature-section--description">
-                        <p>{description}</p>
+                        <Description />
                         {!!SpecialDescription && <SpecialDescription />}
                     </div>
                 }

@@ -104,7 +104,7 @@ This component allows you to group feature tiles together into a cohesive sectio
 |---|---|---|---|
 | HeaderSvg | `React.Component` | `undefined` | An SVG to show before the header text |
 | headerHref | `string` | `undefined` | Converts the header to a link. Useful for pointing to the page that the feature lives on. |
-| description | `string` | `undefined` | Describes the feature section |
+| description | `string` or `React.Component` | `undefined` | Describes the feature section. If `string`, it will be wrapped with a single `<p>` tag. |
 | heroMediaProps | `MediaProps` | `undefined` | Media props if you want some hero image / video under the description |
 | lazyLoad | `boolean` | `false` | Whether you want the tiles to lazy-load. ONLY AFFECTS THE TILES (this allows you to still anchor to the section). |
 | specialText | `string` | `undefined` | Sub-text to the header indicating that this section is special |
