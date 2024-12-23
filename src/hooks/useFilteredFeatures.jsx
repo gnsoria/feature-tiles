@@ -34,8 +34,12 @@ export default function useFilteredFeatures(features) {
      * @param {string} text
      * @returns {boolean}
      */
-    const includesLC = (text) => {
-        return !!text && text.toLowerCase().includes(filterByText.toLowerCase())
+    function includesLC(text) {
+        return (
+            !!text
+            && !!text.toLowerCase
+            && text.toLowerCase().includes(filterByText.toLowerCase())
+        )
     }
 
     /**
@@ -44,7 +48,7 @@ export default function useFilteredFeatures(features) {
      * @param {Object[]} tileData 
      * @returns {Object[]}
      */
-    const getFilteredTiles = (tileData) => {
+    function getFilteredTiles(tileData) {
         if (!filterByText && filterBySpecialty == SPECIALTY_TYPES.all) {
             return tileData
         }
