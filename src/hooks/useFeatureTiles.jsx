@@ -1,12 +1,16 @@
 import React from "react";
 import TileGrid from "../TileGrid";
 import DefaultTile from "../DefaultTile";
+import FeatureSection from "../FeatureSection"
+import SectionJumpButtons from "../SectionJumpButtons"
 import "../typedefs"
 
 /**
  * @typedef useFeatureTilesHook
  * @property {TileGrid} TileGrid
  * @property {DefaultTile} DefaultTile
+ * @property {FeatureSection} FeatureSection
+ * @property {SectionJumpButtons} SectionJumpButtons
  */
 
 /**
@@ -52,7 +56,16 @@ export default function useFeatureTiles({
         mediaLazyLoad={mediaLazyLoad}
         {...props}
     />
+    const CustomizedFeatureSection = (props) => <FeatureSection
+        colorScheme={colorScheme}
+        {...props}
+    />
 
-    return { TileGrid: CustomizedTileGrid, DefaultTile: CustomizedDefaultTile }
+    return {
+        TileGrid: CustomizedTileGrid,
+        DefaultTile: CustomizedDefaultTile,
+        FeatureSection: CustomizedFeatureSection,
+        SectionJumpButtons,
+    }
 }
 

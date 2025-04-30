@@ -1,0 +1,35 @@
+.feature-section--jump-buttons {
+    --jump-button-color: var(--primary, white);
+    margin-bottom: 1.5rem;
+}
+
+.feature-section--jump-buttons>p {
+    margin-bottom: 0.25rem;
+}
+
+.feature-section--jump-buttons>ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+}
+
+.feature-section--default-jump-button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--jump-button-color);
+    border-radius: 0.2rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.feature-section--default-jump-button svg {
+    margin-right: 0.25rem;
+}
+
+.feature-section--default-jump-button:hover {
+    background-color: var(--jump-button-color);
+    color: white;
+    text-decoration: none;
+}

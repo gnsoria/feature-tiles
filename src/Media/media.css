@@ -1,0 +1,15 @@
+.tile-media {
+    border: 1px solid var(--media-border-color);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tile-media img,
+.tile-media video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
