@@ -46,24 +46,33 @@ export default function useFilteredFeatures(features) {
      * Given an array of tile data, filter out tiles that don't either match the filterByText or
      * the access level setting.
      * @param {Object[]} tileData 
+     * @param {string} _filterByText 
+     * @param {string} _filterBySpecialty 
      * @returns {Object[]}
      */
-    function getFilteredTiles(tileData) {
-        if (!filterByText && filterBySpecialty == SPECIALTY_TYPES.all) {
+    function getFilteredTiles(tileData, _filterByText, _filterBySpecialty) {
+        if (!_filterByText && _filterBySpecialty == "All") {
             return tileData
         }
         let tiles = {}
+        const hasText = !!_filterByText
+        const hasSpecialty = !!_filterBySpecialty && _filterBySpecialty != "All"
+        const showOnlySpecialTiles = _filterBySpecialty == "Special"
         for (const [name, data] of Object.entries(tileData)) {
-            if (!!filterByText) {
-                const includesQuery = includesLC(data.header) || includesLC(data.description)
-                if (includesQuery) {
+            const tileMatchesText = includesLC(data.header) || includesLC(data.description)
+            const tileMatchesSpecialty = !!data.isSpecial == showOnlySpecialTiles
+
+            // Yes, these conditionals could be condensed, but it would make the use cases harder
+            // to understand.
+            if (hasText && hasSpecialty) {
+                if (tileMatchesText && tileMatchesSpecialty) {
                     tiles[name] = data
                 }
-            }
-
-            if (!!filterBySpecialty && filterBySpecialty != SPECIALTY_TYPES.all) {
-                const includeIsSpecial = filterBySpecialty == filterBySpecialty.special
-                const tileMatchesSpecialty = data.isSpecial == includeIsSpecial
+            } else if (hasText) {
+                if (tileMatchesText) {
+                    tiles[name] = data
+                }
+            } else if (hasSpecialty) {
                 if (tileMatchesSpecialty) {
                     tiles[name] = data
                 }
@@ -84,10 +93,19 @@ export default function useFilteredFeatures(features) {
                     || includesLC(feature.description)
                 )
             ) {
-                _filteredFeatures.push(feature)
+                const filteredTiles = getFilteredTiles(
+                    feature.tileData,
+                    "",  // Include any tiles, regardless of whether they're a text match
+                    filterBySpecialty
+                )
+                _filteredFeatures.push({ ...feature, tileData: filteredTiles })
             } else {
                 // else, filter the tiles and include the section if there are tiles to show
-                const filteredTiles = getFilteredTiles(feature.tileData)
+                const filteredTiles = getFilteredTiles(
+                    feature.tileData,
+                    filterByText,
+                    filterBySpecialty
+                )
                 const hasTiles = Object.values(filteredTiles).length > 0
                 if (hasTiles) {
                     _filteredFeatures.push({ ...feature, tileData: filteredTiles })
